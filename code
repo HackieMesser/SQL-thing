@@ -1,0 +1,6 @@
+Select month, year, concat(ROUND((south/(south+west+midwest+northeast)*100.0)::numeric ,2),'%') AS southpct, 
+concat(ROUND((west/(south+west+midwest+northeast)*100.0)::numeric ,2),'%')   AS westpct,
+concat(ROUND((midwest/(south+west+midwest+northeast)*100.0)::numeric ,2),'%')   AS midwestpct,
+concat(ROUND((northeast/(south+west+midwest+northeast)*100.0)::numeric ,2),'%')   AS northeastpct
+from tutorial.us_housing_units
+where year >= 2000
