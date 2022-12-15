@@ -1,2 +1,4 @@
 select website from sqlchallenge1.accounts order by length(website) DESC
 /*https://tableplus.com/blog/2019/09/select-rows-with-longest-string-value-sql.html*/
+
+select count(name) from sqlchallenge1.sales_reps where name ilike '%e%'
