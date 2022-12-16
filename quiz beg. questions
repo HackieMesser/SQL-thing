@@ -5,3 +5,6 @@ select count(name) from sqlchallenge1.sales_reps where name ilike '%e%'
 
 select name from sqlchallenge1.accounts where name ilike '%&%' order by name
 
+select * from sqlchallenge1.orders join sqlchallenge1.accounts 
+on sqlchallenge1.accounts.id = sqlchallenge1.orders.account_id where occurred_at > '2015-05-31' and occurred_at < '2015-06-01' order by occurred_at
+
