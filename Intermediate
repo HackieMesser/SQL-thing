@@ -1,2 +1,4 @@
 select count(low)
 from tutorial.aapl_historical_stock_price
+
+select sum(open)/count(open) as avg_open  from tutorial.aapl_historical_stock_price
