@@ -2,3 +2,5 @@ select count(low)
 from tutorial.aapl_historical_stock_price
 
 select sum(open)/count(open) as avg_open  from tutorial.aapl_historical_stock_price
+
+select year, month, max(high), min(low) from tutorial.aapl_historical_stock_price group by year, month order by year, month 
