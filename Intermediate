@@ -7,3 +7,5 @@ select year, month, max(high), min(low) from tutorial.aapl_historical_stock_pric
 
 
 select month, year, max(high), min(low) from tutorial.aapl_historical_stock_price group by month, year having max(high)>700 order by month, year 
+
+SELECT * FROM benn.college_football_players
