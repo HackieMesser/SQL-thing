@@ -9,3 +9,5 @@ select year, month, max(high), min(low) from tutorial.aapl_historical_stock_pric
 select month, year, max(high), min(low) from tutorial.aapl_historical_stock_price group by month, year having max(high)>700 order by month, year 
 
 select player_name, year,  case when year = 'SR' then 'Senior' else 'not senior' end as "senior guyyy" from benn.college_football_players order by "senior guyyy" desc
+
+select player_name, state,  case when state = 'CA' then 'yes' else NULL end as "caliorno" from benn.college_football_players order by 3 
