@@ -19,3 +19,5 @@ SELECT player_name,
             WHEN weight > 175 THEN '176-200'
             ELSE '175 or under' END AS weight_group
   FROM benn.college_football_players
+
+SELECT player_name, height, case when height > 80 then 'tall!' else  'short' end as "tall or nah" from benn.college_football_players order by "tall or nah" desc
