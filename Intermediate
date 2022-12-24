@@ -22,4 +22,5 @@ SELECT player_name,
 
 SELECT player_name, height, case when height > 80 then 'tall!' else  'short' end as "tall or nah" from benn.college_football_players order by "tall or nah" desc
 
-select *, case when year in ('JR', 'SR') then player_name else null end as "upperclassmen" from benn.college_football_players
+select *, case when year in ('JR', 'SR') then player_name else null end as "upperclassmen" 
+from benn.college_football_players
