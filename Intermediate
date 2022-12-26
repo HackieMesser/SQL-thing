@@ -55,3 +55,18 @@ count(year) as total
 from benn.college_football_players
 group by state 
 order by total desc
+
+#or
+
+select state, count(case when year in ('FR') 
+then 1 else null end) as FR,
+count(case when year in ('SO') 
+then 1 else null end) as SO,
+count(case when year in ('JR') 
+then 1 else null end) as JR,
+ count(case when year in ('SR') 
+then 1 else null end) as SR,
+count(year) as total
+from benn.college_football_players
+group by state 
+order by total desc
