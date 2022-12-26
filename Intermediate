@@ -34,3 +34,13 @@ SELECT CASE WHEN state in ('CA', 'OR', 'WA')  THEN 'West Coast'
   FROM benn.college_football_players
   where weight >=300
    group by Region
+
+#Write a query that calculates the combined weight of all underclass players (FR/SO) in California as well as the combined weight of all upperclass players (JR/SR) in California.
+
+
+select case when year = 'FR' or year = 'SO' then 'Underclassmen'
+when year in ('JR','SR') then 'Upperclassmen'
+end as upper_or_under_classmen, sum(weight) as sum_of_weight
+from benn.college_football_players
+where state = 'CA'
+group by upper_or_under_classmen
