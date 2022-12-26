@@ -24,3 +24,13 @@ SELECT player_name, height, case when height > 80 then 'tall!' else  'short' end
 
 select *, case when year in ('JR', 'SR') then player_name else null end as "upperclassmen" 
 from benn.college_football_players
+
+
+#Write a query that counts the number of 300lb+ players for each of the following regions: West Coast (CA, OR, WA), Texas, and Other (everywhere else).
+
+SELECT CASE WHEN state in ('CA', 'OR', 'WA')  THEN 'West Coast'
+           when state = 'TX'  then 'Texas'
+           ELSE  'Other' end as Region, count(*) as "big boys"
+  FROM benn.college_football_players
+  where weight >=300
+   group by Region
