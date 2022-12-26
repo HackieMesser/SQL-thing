@@ -44,3 +44,14 @@ end as upper_or_under_classmen, sum(weight) as sum_of_weight
 from benn.college_football_players
 where state = 'CA'
 group by upper_or_under_classmen
+
+#does a horizontal to vertical orientation
+
+select state, count(case when year in ('FR','SO') 
+then 1 else null end) as under_count,
+ count(case when year in ('JR','SR') 
+then 1 else null end) as upper_count,
+count(year) as total
+from benn.college_football_players
+group by state 
+order by total desc
