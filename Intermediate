@@ -70,3 +70,10 @@ count(year) as total
 from benn.college_football_players
 group by state 
 order by total desc
+
+#Write a query that shows the number of players at schools with names that start with A through M, and the number at schools with names starting with N - Z.
+
+select count(case when school_name < 'N' then 1 else null end) as A_thru_M,
+ count (case when school_name >='N' then 1 else null end) as N_thru_Z
+from benn.college_football_players
+
