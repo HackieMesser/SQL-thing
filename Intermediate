@@ -80,3 +80,6 @@ from benn.college_football_players
 select case when school_name < 'N' then 'A-M' 
  when school_name >= 'N' then 'N-Z' end as alphabetized_schools,
 count(*) as total from benn.college_football_players group by alphabetized_schools order by alphabetized_schools
+
+#distinct
+select distinct year from tutorial.aapl_historical_stock_price order by year ASC
