@@ -83,3 +83,5 @@ count(*) as total from benn.college_football_players group by alphabetized_schoo
 
 #distinct
 select distinct year from tutorial.aapl_historical_stock_price order by year ASC
+
+select year, count(distinct month) from tutorial.aapl_historical_stock_price group by year order by year
