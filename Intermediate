@@ -89,3 +89,6 @@ select year, count(distinct month) from tutorial.aapl_historical_stock_price gro
 select  count(distinct month) as distinct_month, count(distinct year) as distinct_year from tutorial.aapl_historical_stock_price 
 
 select players.player_name, players.school_name, players.position, players.weight from benn.college_football_players players where players.state = 'GA' order by players.weight desc
+
+
+select avg (players.weight) as avgweight, team.conference from benn.college_football_players players join benn.college_football_teams team on team.school_name = players.school_name group by team.conference order by avgweight desc
