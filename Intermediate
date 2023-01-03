@@ -92,3 +92,10 @@ select players.player_name, players.school_name, players.position, players.weigh
 
 
 select avg (players.weight) as avgweight, team.conference from benn.college_football_players players join benn.college_football_teams team on team.school_name = players.school_name group by team.conference order by avgweight desc
+
+
+/*Write a query that displays player names, school names and conferences for schools in the "FBS (Division I-A Teams)" division.*/
+
+
+select players.player_name, players.school_name, teams.conference, teams.division from benn.college_football_players players join benn.college_football_teams teams on teams.school_name = players.school_name where teams.division = 'FBS (Division I-A Teams)'
+order by teams.conference
