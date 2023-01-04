@@ -110,3 +110,12 @@ select count(company.permalink) as "count of company", count(acquirer.company_pe
 from tutorial.crunchbase_companies company 
 left join tutorial.crunchbase_acquisitions acquirer 
 on company.permalink = acquirer.company_permalink
+
+
+select  count(distinct company.permalink) as "count of company", count(distinct acquirer.company_permalink) as "count of acquirier", state_code
+from tutorial.crunchbase_companies company 
+ left join tutorial.crunchbase_acquisitions acquirer 
+on company.permalink = acquirer.company_permalink
+where state_code is NOT null 
+group by state_code
+order by "count of acquirier" desc
