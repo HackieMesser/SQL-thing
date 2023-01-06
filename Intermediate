@@ -119,3 +119,11 @@ on company.permalink = acquirer.company_permalink
 where state_code is NOT null 
 group by state_code
 order by "count of acquirier" desc
+
+select  count(distinct company.permalink) as "count of company", count(distinct acquirer.company_permalink) as "count of acquirier", state_code
+from tutorial.crunchbase_acquisitions acquirer 
+ right join tutorial.crunchbase_companies company
+on company.permalink = acquirer.company_permalink
+where state_code is NOT null 
+group by state_code
+order by "count of acquirier" desc
