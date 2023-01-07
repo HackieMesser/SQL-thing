@@ -127,3 +127,7 @@ on company.permalink = acquirer.company_permalink
 where state_code is NOT null 
 group by state_code
 order by "count of acquirier" desc
+
+
+#work in progress
+select * from tutorial.crunchbase_investments left join tutorial.crunchbase_companies on investor_permalink = company_permalink
