@@ -130,4 +130,11 @@ order by "count of acquirier" desc
 
 
 #work in progress
-select * from tutorial.crunchbase_investments left join tutorial.crunchbase_companies on investor_permalink = company_permalink
+SELECT
+  count(company.company_name),
+  count(company.status),
+  count(DISTINCT investment.investor_name)
+FROM
+  tutorial.crunchbase_investments AS investment
+  LEFT JOIN tutorial.crunchbase_companies AS company ON investor_permalink = company_permalink
+where company.company_state_code = NY
