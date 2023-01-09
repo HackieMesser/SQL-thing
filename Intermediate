@@ -138,7 +138,7 @@ SELECT
   count(DISTINCT investment.investor_name) as "Count unique investors"
 FROM
  tutorial.crunchbase_companies company 
-  LEFT JOIN  tutorial.crunchbase_investments  investment ON investor_permalink = company_permalink
+  LEFT JOIN  tutorial.crunchbase_investments  investment ON company.permalink = investment.company_permalink
 where company.state_code = 'NY' 
 group by company.name, company.status
 order by "Count unique investors" DESC
