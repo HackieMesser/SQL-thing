@@ -129,12 +129,16 @@ group by state_code
 order by "count of acquirier" desc
 
 
-#work in progress
+
+
+
 SELECT
-  count(company.company_name),
-  count(company.status),
-  count(DISTINCT investment.investor_name)
+ company.name as "company name" ,
+ company.status as "company status",
+  count(DISTINCT investment.investor_name) as "Count unique investors"
 FROM
-  tutorial.crunchbase_investments AS investment
-  LEFT JOIN tutorial.crunchbase_companies AS company ON investor_permalink = company_permalink
-where company.company_state_code = NY
+ tutorial.crunchbase_companies company 
+  LEFT JOIN  tutorial.crunchbase_investments  investment ON investor_permalink = company_permalink
+where company.state_code = 'NY' 
+group by company.name, company.status
+order by "Count unique investors" DESC
