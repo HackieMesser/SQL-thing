@@ -142,3 +142,17 @@ FROM
 where company.state_code = 'NY' 
 group by company.name, company.status
 order by "Count unique investors" DESC
+
+
+#work in prog
+select * from tutorial.crunchbase_investments
+
+select * from tutorial.crunchbase_companies
+
+
+
+select investor.investor_name, count(investor.company_name), company.name, count(investor.investor_name) 
+from  tutorial.crunchbase_investments investor 
+join tutorial.crunchbase_companies company on company.permalink = investor.company_permalink and "count_inv" = 0 
+group by investor.investor_name, company.name order by investor.investor_name
+
