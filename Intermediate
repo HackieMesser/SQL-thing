@@ -164,3 +164,11 @@ SELECT CASE WHEN investments.investor_name IS NULL THEN 'No Investors'
     ON companies.permalink = investments.company_permalink
  GROUP BY 1
  ORDER BY 2 DESC
+
+
+#fullouter
+select 
+count(case when companies.permalink is not null and investments.company_permalink is null then companies.permalink else null end) as companies_only,
+count (case when companies.permalink is null and investments.company_permalink is not null then investments.company_permalink else null end ) as investments_only,
+count(case when companies.permalink is not null and investments.company_permalink is not null then companies.permalink else null end ) as both_tables
+from tutorial.crunchbase_companies as companies full join tutorial.crunchbase_investments_part1 as investments on companies.permalink = investments.company_permalink 
