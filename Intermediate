@@ -172,3 +172,10 @@ count(case when companies.permalink is not null and investments.company_permalin
 count (case when companies.permalink is null and investments.company_permalink is not null then investments.company_permalink else null end ) as investments_only,
 count(case when companies.permalink is not null and investments.company_permalink is not null then companies.permalink else null end ) as both_tables
 from tutorial.crunchbase_companies as companies full join tutorial.crunchbase_investments_part1 as investments on companies.permalink = investments.company_permalink 
+
+#union pt1
+select company_permalink, company_name, investor_name 
+from tutorial.crunchbase_investments_part1 where "company_name" ilike 't%' 
+union all 
+select company_permalink, company_name, investor_name  
+from tutorial.crunchbase_investments_part2 where "company_name" ilike 'm%'
