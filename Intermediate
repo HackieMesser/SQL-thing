@@ -207,3 +207,21 @@ SELECT 'investments_part1' AS dataset_name,
   LEFT JOIN tutorial.crunchbase_investments_part2 investments
     ON companies.permalink = investments.company_permalink
  GROUP BY 1,2
+
+#if u switch which is the main table then you get black results in the status column
+SELECT 'investments_part1' AS dataset_name,
+       companies.status,
+       COUNT(DISTINCT investments.investor_permalink) AS investors
+  FROM tutorial.crunchbase_investments_part1 investments left join tutorial.crunchbase_companies companies
+
+    ON companies.permalink = investments.company_permalink
+ GROUP BY 1,2
+
+ UNION ALL
+ 
+ SELECT 'investments_part2' AS dataset_name,
+       companies.status,
+       COUNT(DISTINCT investments.investor_permalink) AS investors
+ FROM tutorial.crunchbase_investments_part2 investments left join tutorial.crunchbase_companies companies
+    ON companies.permalink = investments.company_permalink
+ GROUP BY 1,2
