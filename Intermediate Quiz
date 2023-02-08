@@ -1,3 +1,6 @@
   #question 1
-  SELECT (count(accounts.name)/count(sales_reps.id)) as counter FROM sqlchallenge1.accounts as "accounts" left join sqlchallenge1.sales_reps as "sales_reps" on sales_reps.id = accounts.sales_rep_id 
-  left join sqlchallenge1.region as "region" on region.id = sales_reps.region_id  group by region.name
+
+  SELECT (count(distinct sales_reps.name)*1.0)/count(distinct accounts.name) as "proportion", region.name as counter FROM sqlchallenge1.accounts as "accounts" left join sqlchallenge1.sales_reps as "sales_reps" on sales_reps.id = accounts.sales_rep_id 
+  left join sqlchallenge1.region as "region" on region.id = sales_reps.region_id  group by region.name order by region.name desc
+  
+  #answer west
