@@ -10,3 +10,9 @@
   #answer west
 
 #question 2
+SELECT sum(orders.total) as "total orders", sales_reps.name FROM sqlchallenge1.accounts as "accounts" left join sqlchallenge1.sales_reps as "sales_reps" on sales_reps.id = accounts.sales_rep_id 
+  left join sqlchallenge1.region as "region" on region.id = sales_reps.region_id 
+  left join sqlchallenge1.orders as "orders" on orders.account_id = accounts.id 
+  where sales_reps.name = 'Tia Amato' or  sales_reps.name = 'Delilah Krum' or  sales_reps.name = 'Soraya Fulton' group by sales_reps.name order by "total orders" desc
+
+#answer tia amato
