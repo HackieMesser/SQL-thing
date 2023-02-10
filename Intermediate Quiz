@@ -22,7 +22,7 @@ SELECT sum(orders.total) as "total orders", sales_reps.name FROM sqlchallenge1.a
   left join sqlchallenge1.region as "region" on region.id = sales_reps.region_id 
   left join sqlchallenge1.orders as "orders" on orders.account_id = accounts.id where  region.name='Northeast' group by "company name" order by "post" asc
   
-#answerexxon mobil
+#answer exxon mobil
 
 #question 4
 
