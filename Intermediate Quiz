@@ -32,3 +32,10 @@ SELECT sum(orders.total) as "total orders", sales_reps.name FROM sqlchallenge1.a
   left join sqlchallenge1.orders as "orders" on orders.account_id = accounts.id group by "company name" order by post asc
   
   #answer 2
+  
+#question 5
+
+
+
+
+
