@@ -34,7 +34,8 @@ SELECT sum(orders.total) as "total orders", sales_reps.name FROM sqlchallenge1.a
   #answer 2
   
 #question 5
-
+select  count(split_part("primary_poc", ' ', 1)), split_part("primary_poc", ' ', 1)   FROM sqlchallenge1.accounts group by 2 order by 1 desc
+#answer jodee
 
 
 
