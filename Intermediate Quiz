@@ -1,5 +1,5 @@
 #completed 
- 
+/*100%*/ 
  #getting one table
    SELECT * FROM sqlchallenge1.accounts as "accounts" left join sqlchallenge1.sales_reps as "sales_reps" on sales_reps.id = accounts.sales_rep_id 
   left join sqlchallenge1.region as "region" on region.id = sales_reps.region_id left join sqlchallenge1.orders as "orders" on orders.account_id = accounts.id  
