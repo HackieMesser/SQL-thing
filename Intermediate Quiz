@@ -1,4 +1,4 @@
-completed 
+#completed 
  
  #getting one table
    SELECT * FROM sqlchallenge1.accounts as "accounts" left join sqlchallenge1.sales_reps as "sales_reps" on sales_reps.id = accounts.sales_rep_id 
