@@ -2,8 +2,12 @@
 select funding_total_usd::VARCHAR, cast(founded_at_clean as varchar) from tutorial.crunchbase_companies_clean_date
 
 #2
-SELECT acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  
+SELECT  case when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '1095 days' then 'within 3'
+ when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp > '1095 days' and acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '1825 days' then 'within 5'
+ when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp > '1825 days' and acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '3650 days' then 'within 10'
+end as time2aq, count(*)
   FROM tutorial.crunchbase_companies_clean_date companies
   JOIN tutorial.crunchbase_acquisitions_clean_date acquisitions
     ON acquisitions.company_permalink = companies.permalink
- WHERE founded_at_clean IS NOT NULLOT NULL
+    group by 1
+
