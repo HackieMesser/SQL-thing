@@ -1,13 +1,15 @@
 #1a
 select funding_total_usd::VARCHAR, cast(founded_at_clean as varchar) from tutorial.crunchbase_companies_clean_date
 
-#2
-SELECT  case when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '1095 days' then 'within 3'
- when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp > '1095 days' and acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '1825 days' then 'within 5'
- when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp > '1825 days' and acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '3650 days' then 'within 10'
-end as time2aq, count(*)
+#2 still working
+SELECT  COUNT(case when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp > '0 days' and acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '1095 days' then 1 else null end) as within_3,
+ COUNT(case when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp > '1095 days' and acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '1825 days' then 1 else null end) as within_5,
+ COUNT(case when acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp > '1825 days' and acquisitions.acquired_at_cleaned::timestamp  - companies.founded_at_clean::timestamp  < '3650 days' then 1 else null end) as within_10
+
   FROM tutorial.crunchbase_companies_clean_date companies
   JOIN tutorial.crunchbase_acquisitions_clean_date acquisitions
     ON acquisitions.company_permalink = companies.permalink
-    group by 1
+  
+
+
 
