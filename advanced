@@ -30,5 +30,14 @@ SELECT companies.category_code,
 
 #3
 
-SELECT location, substr(location,(position(',' in location))+1,(position(')' in location))) as lon, substr(location,2,(position(',' in location))-2) as lat
+select*from tutorial.sf_crime_incidents_2014_01
+
+select position(',' in location) from tutorial.sf_crime_incidents_2014_01;
+
+SELECT location, substr(location,(position(',' in location))+1,(position(')' in location)-2)) as lon, substr(location,2,(position(',' in location))-2) as lat
 FROM tutorial.sf_crime_incidents_2014_01
+
+SELECT location,
+       TRIM(leading '(' FROM LEFT(location, POSITION(',' IN location) - 1)) AS lattitude,
+       TRIM(trailing ')' FROM RIGHT(location, LENGTH(location) - POSITION(',' IN location) ) ) AS longitude
+  FROM tutorial.sf_crime_incidents_2014_01
