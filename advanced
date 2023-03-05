@@ -28,4 +28,7 @@ SELECT companies.category_code,
  GROUP BY 1
  ORDER BY 5 DESC
 
+#3
 
+SELECT location, substr(location,(position(',' in location))+1,(position(')' in location))) as lon, substr(location,2,(position(',' in location))-2) as lat
+FROM tutorial.sf_crime_incidents_2014_01
