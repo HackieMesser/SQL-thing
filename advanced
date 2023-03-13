@@ -41,3 +41,7 @@ SELECT location,
        TRIM(leading '(' FROM LEFT(location, POSITION(',' IN location) - 1)) AS lattitude,
        TRIM(trailing ')' FROM RIGHT(location, LENGTH(location) - POSITION(',' IN location) ) ) AS longitude
   FROM tutorial.sf_crime_incidents_2014_01
+
+
+#concat WIP
+select concat('(',lon,' ', lat,')')   FROM tutorial.sf_crime_incidents_2014_01 
