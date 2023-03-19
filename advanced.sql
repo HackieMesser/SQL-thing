@@ -47,3 +47,5 @@ SELECT location,
 select location, concat('(',lat,', ', lon,')') as "concat location"   FROM tutorial.sf_crime_incidents_2014_01 
 alt way
 select '('|| lat||', '|| lon||')' as "concat location"   FROM tutorial.sf_crime_incidents_2014_01 
+date concat
+select substr("date",7,4)||'-'||left("date",2)||'-' ||substr("date",4,2) as new_date FROM tutorial.sf_crime_incidents_2014_01 
