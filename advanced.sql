@@ -44,4 +44,4 @@ SELECT location,
 
 
 #concat WIP
-select concat('(',lon,' ', lat,')')   FROM tutorial.sf_crime_incidents_2014_01 
+select location, concat('(',lat,', ', lon,')')   FROM tutorial.sf_crime_incidents_2014_01 
