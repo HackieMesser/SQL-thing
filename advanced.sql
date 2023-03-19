@@ -43,7 +43,7 @@ SELECT location,
   FROM tutorial.sf_crime_incidents_2014_01
 
 
-#concat WIP
+#concat 
 select location, concat('(',lat,', ', lon,')') as "concat location"   FROM tutorial.sf_crime_incidents_2014_01 
 alt way
 select '('|| lat||', '|| lon||')' as "concat location"   FROM tutorial.sf_crime_incidents_2014_01 
