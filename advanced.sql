@@ -54,3 +54,10 @@ select substr("date",7,4)||'-'||left("date",2)||'-' ||substr("date",4,2) as new_
 SELECT left(category,1)||right(lower(category),length(category)-1) as cleaned_cat 
 
   FROM tutorial.sf_crime_incidents_2014_01
+
+
+SELECT incidnt_num,
+       date,
+       (SUBSTR(date, 7, 4) || '-' || LEFT(date, 2) ||
+        '-' || SUBSTR(date, 4, 2))::date AS cleaned_date
+  FROM tutorial.sf_crime_incidents_2014_01
