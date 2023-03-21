@@ -55,7 +55,7 @@ SELECT left(category,1)||right(lower(category),length(category)-1) as cleaned_ca
 
   FROM tutorial.sf_crime_incidents_2014_01
 
-
+#wip
 SELECT incidnt_num,
        date,
        (SUBSTR(date, 7, 4) || '-' || LEFT(date, 2) ||
