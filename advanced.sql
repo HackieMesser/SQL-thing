@@ -57,5 +57,5 @@ SELECT left(category,1)||right(lower(category),length(category)-1) as cleaned_ca
 
 #wip
 SELECT 
-       date, time, (substr(date,7,4)||'-'||left(date,2)||'-'||substr(date,4,2)||' '||time) as date_time
+       date, time, (substr(date,7,4)||'-'||left(date,2)||'-'||substr(date,4,2)||' '||time)::timestamp as date_time, 
   FROM tutorial.sf_crime_incidents_2014_01
