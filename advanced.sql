@@ -58,3 +58,7 @@ SELECT left(category,1)||right(lower(category),length(category)-1) as cleaned_ca
 SELECT 
        date, time, (substr(date,7,4)||'-'||left(date,2)||'-'||substr(date,4,2)||' '||time)::timestamp as date_time, (substr(date,7,4)||'-'||left(date,2)||'-'||substr(date,4,2)||' '||time)::timestamp + INTERVAL '1 week' as plusweek
   FROM tutorial.sf_crime_incidents_2014_01
+
+
+
+select extract('week' from cleaned_date) as week, count(incidnt_num)  from  tutorial.sf_crime_incidents_cleandate group by 1 order by 1
