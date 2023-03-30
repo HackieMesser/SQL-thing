@@ -62,3 +62,6 @@ SELECT
 
 
 select date_trunc('week', cleaned_date)::date as week, count(incidnt_num)  from  tutorial.sf_crime_incidents_cleandate group by 1 order by 1
+
+
+SELECT CURRENT_TIME - date from  tutorial.sf_crime_incidents_cleandate
