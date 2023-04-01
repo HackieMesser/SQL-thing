@@ -63,5 +63,4 @@ SELECT
 
 select date_trunc('week', cleaned_date)::date as week, count(incidnt_num)  from  tutorial.sf_crime_incidents_cleandate group by 1 order by 1
 
-#wip
 SELECT incidnt_num,now() at time zone 'PST' - "cleaned_date" as how_long_ago from  tutorial.sf_crime_incidents_cleandate
