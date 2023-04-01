@@ -73,5 +73,8 @@ select sub.* from (
 
 
       
-      
+  select left(sub.date,2), avg(sub.county), sub.category  from
+                        (select date, count(incidnt_num) as county, category FROM tutorial.sf_crime_incidents_2014_01 group by 1, 3) sub group by 1,3
+
+    
    
