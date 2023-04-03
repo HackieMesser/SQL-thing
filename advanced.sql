@@ -81,3 +81,13 @@ select sub.* from (
 select avg(sub.county), sub.category  from
                         (select left(date,2), count(incidnt_num) as county, category FROM tutorial.sf_crime_incidents_2014_01 group by 1, 3) sub group by 2
 
+SELECT sub.category,
+       AVG(sub.incidents) AS avg_incidents_per_month
+  FROM (
+        SELECT EXTRACT('month' FROM cleaned_date) AS month,
+               category,
+               COUNT(1) AS incidents
+          FROM tutorial.sf_crime_incidents_cleandate
+         GROUP BY 1,2
+       ) sub
+ GROUP BY 1
