@@ -91,3 +91,6 @@ SELECT sub.category,
          GROUP BY 1,2
        ) sub
  GROUP BY 1
+
+#wip
+select sub.three from (select categories, count(incidnt_num) from tutorial.crunchbase_acquisitions_clean_date ) sub
