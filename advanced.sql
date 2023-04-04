@@ -93,4 +93,4 @@ SELECT sub.category,
  GROUP BY 1
 
 #wip
-select sub.three from (select categories, count(incidnt_num) from tutorial.crunchbase_acquisitions_clean_date ) sub
+select * from (select "category", count(incidnt_num) from tutorial.sf_crime_incidents_cleandate GROUP by 1) sub 
