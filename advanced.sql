@@ -97,5 +97,7 @@ join
 (select category, count(*) from tutorial.sf_crime_incidents_cleandate group by 1 order by 2 asc limit 3) sub on
 sub.category=incident.category
 
+
+#wip
 select count(*) from tutorial.crunchbase_companies where founded_month >= '2012-Q1' full join 
 select * from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' 
