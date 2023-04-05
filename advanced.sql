@@ -93,4 +93,4 @@ SELECT sub.category,
  GROUP BY 1
 
 #wip
-select * from (select "category", count(incidnt_num) from tutorial.sf_crime_incidents_cleandate GROUP by 1) sub 
+select * from (select "category", count(incidnt_num) from tutorial.sf_crime_incidents_cleandate GROUP by 1  order by 2 asc ) sub limit 3
