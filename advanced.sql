@@ -92,5 +92,7 @@ SELECT sub.category,
        ) sub
  GROUP BY 1
 
-#wip
-select * from (select "category", count(incidnt_num) from tutorial.sf_crime_incidents_cleandate GROUP by 1  order by 2 asc ) sub limit 3
+select * from tutorial.sf_crime_incidents_cleandate as incident
+join
+(select category, count(*) from tutorial.sf_crime_incidents_cleandate group by 1 order by 2 asc limit 3) sub on
+sub.category=incident.category
