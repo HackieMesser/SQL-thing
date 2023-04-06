@@ -109,3 +109,6 @@ select acquired_quarter, count(*) from tutorial.crunchbase_acquisitions where ac
 select acquired_quarter as quarter, count(*) as count from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' group by 1 order by 1, 2
 
 select founded_quarter as quarter, count(*) as count from tutorial.crunchbase_companies where founded_quarter >='2012-Q1' group by 1 order by 1,2
+(select founded_quarter as quarter, count(*) as count from tutorial.crunchbase_companies where founded_quarter >='2012-Q1' group by 1 order by 1,2 ) company join 
+
+(select acquired_quarter as quarter, count(*) as count from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' group by 1 order by 1, 2) as aquired on company.quarter=aquired.quarter
