@@ -99,9 +99,6 @@ sub.category=incident.category
 
 
 #wip
-select count(*) from tutorial.crunchbase_companies where founded_month >= '2012-Q1' full join 
-select * from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' 
-
 
 
 select sum(acquired_count), sum(founded_count), company.quarter
