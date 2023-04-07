@@ -101,7 +101,7 @@ sub.category=incident.category
 #wip
 
 
-select sum(acquired_count), sum(founded_count), company.quarter
+select sum(acquired_count) as acquired_sum, sum(founded_count) as founded_sum, company.quarter
 
 from
 
