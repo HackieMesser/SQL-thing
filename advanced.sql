@@ -104,20 +104,15 @@ select * from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q
 
 
 
-select acquired_quarter, count(*) from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' group by 1 order by 2
-
-select acquired_quarter as quarter, count(*) as count from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' group by 1 order by 1, 2
-
-select founded_quarter as quarter, count(*) as count from tutorial.crunchbase_companies where founded_quarter >='2012-Q1' group by 1 order by 1,2
-(select founded_quarter as quarter, count(*) as count from tutorial.crunchbase_companies where founded_quarter >='2012-Q1' group by 1 order by 1,2 ) company join 
-
-(select acquired_quarter as quarter, count(*) as count from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' group by 1 order by 1, 2) as aquired on company.quarter=aquired.quarter
-
-
-select acquired_count, founded_count, quarter
+select sum(acquired_count), sum(founded_count), company.quarter
 
 from
-((select founded_quarter as quarter, count(*) as founded_count from tutorial.crunchbase_companies where founded_quarter >='2012-Q1' group by 1 order by 1,2 ) company full join 
 
-(select acquired_quarter as quarter, count(*) as acquired_count from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' group by 1 order by 1, 2) as aquired on company.quarter=aquired.quarter)
+(select founded_quarter as quarter, count(*) as founded_count from tutorial.crunchbase_companies where founded_quarter >='2012-Q1' group by 1 order by 1,2 ) company 
+
+full join 
+
+(select acquired_quarter as quarter, count(*) as acquired_count from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' group by 1 order by 1, 2) aquired 
+
+on company.quarter=aquired.quarter
 group by 3
