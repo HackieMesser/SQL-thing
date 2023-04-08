@@ -98,7 +98,7 @@ join
 sub.category=incident.category
 
 
-#wip
+#wip worth it
 
 
 select sum(acquired_count) as acquired_sum, sum(founded_count) as founded_sum, company.quarter
