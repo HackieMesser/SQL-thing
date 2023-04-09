@@ -1,3 +1,5 @@
+70-100
+163-195
 #1a
 select funding_total_usd::VARCHAR, cast(founded_at_clean as varchar) from tutorial.crunchbase_companies_clean_date
 
