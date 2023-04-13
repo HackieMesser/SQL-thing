@@ -102,8 +102,7 @@ sub.category=incident.category
 
 #wip worth it check out tmnrw
 
-
-select sum(acquired_count) as acquired_sum, sum(founded_count) as founded_sum, company.quarter
+select COALESCE(aquired.quarter, company.quarter) AS quarter, sum(acquired_count) as acquired_sum, sum(founded_count) as founded_sum
 
 from
 
@@ -114,4 +113,4 @@ full join
 (select acquired_quarter as quarter, count(*) as acquired_count from tutorial.crunchbase_acquisitions where acquired_quarter >= '2012-Q1' group by 1 order by 1, 2) aquired 
 
 on company.quarter=aquired.quarter
-group by 3
+group by 1
