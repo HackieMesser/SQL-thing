@@ -114,3 +114,6 @@ full join
 
 on company.quarter=aquired.quarter
 group by 1
+
+
+select distinct investor_name, count(*)  from (select* from tutorial.crunchbase_investments_part1 union all select * from tutorial.crunchbase_investments_part2) sub group by 1 order by 2 desc
